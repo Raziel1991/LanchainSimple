@@ -71,9 +71,6 @@ Edit `my_question` in `main.py` to ask the agent something different.
 └── screenshots/            # Images used by this README
 ```
 
-## Screenshots
-
-Add your screenshots to the `screenshots` folder, then replace the files below with your own images.
 
 ### Agent running in the terminal
 
