@@ -77,7 +77,7 @@ Add your screenshots to the `screenshots` folder, then replace the files below w
 
 ### Agent running in the terminal
 
-![Terminal output placeholder](screenshots/terminal-output.png)
+![Terminal output placeholder](screenshots/Terminal_output.png)
 
 ### Model running on Docker
 
