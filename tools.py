@@ -23,7 +23,6 @@ def check_internet_connection(url: str = "http://www.google.com", timeout: int =
     except (URLError, HTTPError):
         print("No internet connection available.")
         return False
-        return False
 
 
 def check_internet_download_speed(url: str = "http://www.google.com", timeout: int = 5) -> float:

@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.agents import create_agent
 
+#langchain promptcalling tools
 
 from tools import (
     check_internet_connection,
@@ -43,12 +44,36 @@ agent = create_agent(
 #     ]
 # )
 
-my_question = "check my internet connection and download speed in gigabytes per second and give me a simple answer with the results."
+
+system_message = "You are a helpful {subject} engineer that can provide information about {concept}. Keep answers simple and concise. Do not make up information. If you don't know the answer, say 'I don't know' or if you can't perform the action just say 'I cannot perform that action.'"
+my_question = "tell me about {concept}"
+
+
+
+
+prompt_template = ChatPromptTemplate.from_messages(
+    [
+        ("system", system_message),
+        ("user", my_question)
+    ]
+)
+
+prompt = prompt_template.format_messages(
+    subject="Network Security Engineer",
+    concept= "internet connection and download speed, and check mine "
+)
+
 
 result = agent.invoke(
-        {"messages": [{"role": "user", "content": my_question}]}
-
+    {"messages": prompt}
 )
+
+
+# fully tested ok here is the code to invoke the agent with the prompt template and get the response:
+# result = agent.invoke(
+#         {"messages": [{"role": "user", "content": my_question}]}
+
+# )
 
 
 response = result["messages"][-1]
